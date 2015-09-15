@@ -1,0 +1,25 @@
+[
+{
+	"id":"60",
+	"name":"Bahamas Cruise",
+	"cruise_id":"5",
+	"main_image":"http://i.imgur.com/xCLiMOj.jpg"
+	
+},
+
+{
+	"id":"65",
+	"name":"Jamaica Cruise",
+	"cruise_id":"8",
+	"main_image":"http://i.imgur.com/4V0D6IK.jpg"
+	
+},
+
+{
+	"id":"70",
+	"name":"Mexico Cruise",
+	"cruise_id":"1",
+	"main_image":"http://i.imgur.com/a82YKej.jpg"
+	
+}
+]
