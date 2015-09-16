@@ -1,21 +1,43 @@
-<div class="container" ng-app="CruiseCenter">
-  <h1>Cruises</h1>
 
-  <div ng-controller="cruisesController">
-    
+<h1 class="header">Choose Your Sailings&nbsp;<span class="pick_one">(Pick one for each box)</span></h1>
 
+  <div class="all_aboard" ng-app="app">
+	<div ng-controller="CruisesController">
+	  <div ng-repeat="cruise in cruises">
+	  	<div class="panel panel-default">
+  			<div class="panel-body">			  	
+    	  	<div ng-controller="SailingsController">
+    	  		<div ng-repeat="sail in sailings ">
+    	  			<div ng-if="sail.cruise_id == cruise.id">
+                <div>
+                  <img src="{{ sail.main_image }}" class="cruise_picture"/>
+                  <img><%= image_tag "lowest_price_tag.png", class: "lowest_price_tag"%> <img/>
+                </div>  		  			
+    				    
 
-    <div ng-repeat="cruise in cruises">
-      <div>{{ cruise.name }}</div>
-      <div>{{ cruise.ship_name }}</div>
-      <div ng-repeat="sailing in cruise.sailings"></div>
-        <div>{{ sailing.name }}</div>
-        <div>{{ sailing.main_image }}</div>
-        	
-        <div ng-repeat="sailing_option in sailing.sailing_options">
-          <div>{{ sailing_option.price}}</div>
-          <div>{{ sailing_option.date}}</div>
+                <div>{{cruise.name}}-{{cruise.ship_name}}</div>
+                
+    				    <h1>{{ sail.name }}</h1>
+
+    				    <div ng-controller="SailingOptionsController">
+    					    <table style="width: 100%;" ng-repeat="soption in sailing_options">
+    					    	<tr ng-if="soption.sailing_id == sail.id">
+                      <td style="float: left; width: 70%;">{{ soption.date}}</td>
+                      <td style="width: 0%;"></td>	
+    				        	<td class="price">{{ soption.price}}</td>
+    				        </tr>
+    				    	</table>
+    				    </div>
+    					</div>
+    				</div>
+    			</div>
         </div>
-      </div>
-  </div>
+        
+			</div>
+
+		</div>
+	</div>
 </div>
+<br/>
+<br/>
+<div class="divider"></div>

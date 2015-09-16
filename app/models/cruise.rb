@@ -3,4 +3,5 @@ class Cruise < ActiveRecord::Base
 	has_many :sailing_options, through: :sailings
 	belongs_to :dashboard
 
+	
 end

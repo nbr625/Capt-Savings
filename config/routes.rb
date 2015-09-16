@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
 
-  resources :dashboards, only: :main_board, defaults: {format: :json}
-  resources :cruises, defaults: {format: :json}
-  resources :sailings, defaults: {format: :json}
-  resources :sailing_options, defaults: {format: :json}
 
-  root to: "dashboards#main_board"
+  resources :cruises, only: :index, defaults: {format: :json}
+  resources :sailings, only: :index, defaults: {format: :json}
+  resources :sailing_options, only: :index, defaults: {format: :json}
+
+  root to: "cruises#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
