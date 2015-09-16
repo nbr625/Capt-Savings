@@ -1,0 +1,18 @@
+
+<h1>Main Dashboard</h1>
+<div ng-controller="dashboardController">
+  <div ng-repeat="board in dashboard">
+      <div ng-repeat="cruise in board.cruises">
+          <div>{{ cruise.name }}</div>
+          <div>{{ cruise.ship_name }}</div>
+      </div>
+      <div ng-repeat="sailing in board.sailings">
+          <div>{{ sailing.name }}</div>
+          <div>{{ sailing.main_image }}</div>
+      </div>
+      <div ng-repeat="sailing_option in board.sailing_options">
+          <div>{{ sailing_option.price}}</div>
+          <div>{{ sailing_option.date}}</div>
+      </div>
+  </div>
+</div>

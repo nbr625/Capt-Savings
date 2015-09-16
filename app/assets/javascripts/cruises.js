@@ -1,26 +1,8 @@
-var cruiseCenter = angular.module('CruiseCenter', ['ngResource']);
+var dashboardCenter = angular.module('DashboardCenter', ['$http', '$scope']);
 
-cruiseCenter.factory("Cruise", function($resource) {
-  return $resource("cruises/:id", { id: '@id' }, {
-    index:   { method: 'GET', isArray: true, responseType: 'json' },
-    update:  { method: 'PUT', responseType: 'json' }
-  });
-})
+    dashboardCenter.controller("dashboardController", [ '$scope', '$http', function($scope, $http) {
+      $http({ method: 'GET', url: 'db/jsondata/dashboard1.json'}).success(function(data){
+        $scope.dashboard = data;
+      });
+}]);
 
-cruiseCenter.controller("cruisesController", function($scope, Cruise) {
-  $scope.cruises = Cruise.index()
-
-  $scope.addCruise = function() {
-    cruise = Cruise.save($scope.newCruise)
-
-    $scope.cruises.push(cruise)
-    $scope.newCruise = {}
-  }
-
-  $scope.deleteCruise = function(index) {
-    
-    cruise = $scope.cruises[index]
-    Cruise.delete(cruise)
-    $scope.cruises.splice(index, 1);
-  }
-})
