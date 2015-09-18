@@ -8,12 +8,11 @@ class SailingOption < ActiveRecord::Base
 		sailings.each do |s|
 			cheapest = 1000
 			s.sailing_options.each do |o|
-				if o.price > cheapest
+				if o.price < cheapest
 					cheapest = o.price				
 				end
 			end
-			s.starting_price = cheapest
-			s.save
+			s.update_attribute(:starting_price, cheapest)
 
 		end
 	end

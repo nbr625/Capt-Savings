@@ -11,8 +11,13 @@
     	  			<div ng-if="sail.cruise_id == cruise.id">
                 <div class="image_and_tag">
                   <img src="{{ sail.main_image }}" class="cruise_picture"/>
-                  <img><%= image_tag "lowest_price_tag.png", class: "lowest_price_tag"%> <img/>
-                  
+       
+                  <div id="tag_container">
+                    <div ><%= image_tag("tag.png", class: 'tag') %></div>
+                    <div class="starting_at">Starting at</div>
+                    <div class="starting_price">${{sail.starting_price}}</div>
+                  </div>  
+
                 </div>  		  			
     				    <div class="white_board">
 
@@ -46,11 +51,18 @@
 <br/>
 <br/>
 <div class="divider"></div>
-<div>
 
-  <h1 class="you_selected_total">You Selected Sailings Total</h1>
+<div class="total_footer">
 
-  <input style="color:red;" type="text" class="totalSum" value="" readonly="readonly">
+  <div class="you_selected_total">You Selected Sailings Total</div>
+
+  <div class="bottom_container"></div>
+  <div class="price_tag">
+    <div class="dollar_sign">$</div>
+
+    <input type="text" class="totalSum" value="" readonly="readonly">
+  </div>
+
 </div>
 
 
