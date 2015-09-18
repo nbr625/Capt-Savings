@@ -5,6 +5,8 @@
 var app = angular.module('app', ['ngResource']);
 
 
+
+
 app.factory("Cruise", function($resource) {
   return $resource("cruises/:id", { id: '@id' }, {
     index:   { method: 'GET', isArray: true, responseType: 'json' }
@@ -26,7 +28,12 @@ app.factory("Sailing", function($resource) {
 
 app.controller("SailingsController", function($scope, Sailing) {
   $scope.sailings = Sailing.index()
+
+
 })
+
+
+
 
 
 

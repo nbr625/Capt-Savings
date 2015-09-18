@@ -5,6 +5,7 @@ class CruisesController < ApplicationController
         	format.json { render json: Cruise.all }
         	format.html
     	end
+    
     end
   
 

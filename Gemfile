@@ -26,6 +26,7 @@ gem 'angularjs-rails', '~> 1.2.25'
 gem 'bootstrap-sass', '~> 3.2.0.2'
 gem 'responders', '~> 2.0'
 gem 'json', '~> 1.8.3'
+gem 'jquery-turbolinks'
 
 
 # Use ActiveModel has_secure_password

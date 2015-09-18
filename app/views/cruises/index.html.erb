@@ -1,43 +1,59 @@
 
-<h1 class="header">Choose Your Sailings&nbsp;<span class="pick_one">(Pick one for each box)</span></h1>
+<h1 class="title">Choose Your Sailings&nbsp;<span class="pick_one">(Pick one for each box)</span></h1>
 
-  <div class="all_aboard" ng-app="app">
+<div class="all_aboard" ng-app="app">
 	<div ng-controller="CruisesController">
 	  <div ng-repeat="cruise in cruises">
 	  	<div class="panel panel-default">
   			<div class="panel-body">			  	
     	  	<div ng-controller="SailingsController">
-    	  		<div ng-repeat="sail in sailings ">
+    	  		<div ng-repeat="sail in sailings">
     	  			<div ng-if="sail.cruise_id == cruise.id">
-                <div>
+                <div class="image_and_tag">
                   <img src="{{ sail.main_image }}" class="cruise_picture"/>
                   <img><%= image_tag "lowest_price_tag.png", class: "lowest_price_tag"%> <img/>
+                  
                 </div>  		  			
-    				    
+    				    <div class="white_board">
 
-                <div>{{cruise.name}}-{{cruise.ship_name}}</div>
-                
-    				    <h1>{{ sail.name }}</h1>
+                  <div class="cruise_details">{{cruise.name}}-{{cruise.ship_name}}</div>
+                  
+      				    <h1 class="sailing_title">{{ sail.name }}</h1>
 
-    				    <div ng-controller="SailingOptionsController">
-    					    <table style="width: 100%;" ng-repeat="soption in sailing_options">
-    					    	<tr ng-if="soption.sailing_id == sail.id">
-                      <td style="float: left; width: 70%;">{{ soption.date}}</td>
-                      <td style="width: 0%;"></td>	
-    				        	<td class="price">{{ soption.price}}</td>
-    				        </tr>
-    				    	</table>
-    				    </div>
+      				    <div ng-controller="SailingOptionsController">
+      					    <div class="option_box" ng-repeat="soption in sailing_options">
+      					    	<div ng-if="soption.sailing_id == sail.id" >
+                        <div class="radio">
+
+                          <input class="radial_input" id="soption{{soption.id}}" type="radio" name="cruisePrice{{sail.id}}" value="{{soption.price}}">
+                          <div class="date">{{ soption.date}}</div>
+        				        	<div class="price">${{ soption.price}}</div>
+                        </div>
+      				        </div>
+      				    	</div>
+      				    </div>
+                </div>
     					</div>
     				</div>
     			</div>
         </div>
-        
 			</div>
-
 		</div>
 	</div>
 </div>
+
+
 <br/>
 <br/>
 <div class="divider"></div>
+<div>
+
+  <h1 class="you_selected_total">You Selected Sailings Total</h1>
+
+  <input style="color:red;" type="text" class="totalSum" value="" readonly="readonly">
+</div>
+
+
+
+
+

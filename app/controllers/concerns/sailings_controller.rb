@@ -8,3 +8,4 @@ class SailingsController < ApplicationController
     end
     
 end
+

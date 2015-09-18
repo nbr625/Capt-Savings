@@ -10,10 +10,8 @@
 require 'json'
 
 
-records = JSON.parse(File.read('db/jsondata/dashboarddata.json'))
-records.each do |record|
-  Dashboard.create!(record)
-end
+
+
 
 records = JSON.parse(File.read('db/jsondata/cruisedata.json'))
 records.each do |record|

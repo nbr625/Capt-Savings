@@ -2,14 +2,36 @@
 <html >
 <head>
   <title>Cruiseline</title>
+  
 
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application'%>
+ 
+  <%= stylesheet_link_tag    'application', media: 'all'%>
+  
+
   <%= csrf_meta_tags %>
+
+  <script>
+  	$( document ).ready(function() {
+
+
+	  $(document).on("click",".all_aboard .radial_input", function() {
+        var total = 0;
+        $(document).find("input[type=radio]:checked").each(function() {
+          total += parseFloat($(this).val());
+          });
+
+        $(".totalSum").val(total);
+      });
+	});
+  </script>
 </head>
 <body>
 
+	
+
 <%= yield %>
+	
 
 </body>
 </html>

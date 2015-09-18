@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150915065106) do
+ActiveRecord::Schema.define(version: 20150917221450) do
 
   create_table "cruises", force: :cascade do |t|
     t.string   "name"
@@ -38,8 +38,9 @@ ActiveRecord::Schema.define(version: 20150915065106) do
     t.string   "name"
     t.integer  "cruise_id"
     t.string   "main_image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "starting_price"
   end
 
 end
