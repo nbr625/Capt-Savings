@@ -4,7 +4,7 @@
 <div class="all_aboard" ng-app="app">
 	<div ng-controller="CruisesController">
 	  <div ng-repeat="cruise in cruises">
-	  	<div class="panel panel-default">
+	  	<div id="cruise_panel" class=" panel panel-default">
   			<div class="panel-body">			  	
     	  	<div ng-controller="SailingsController">
     	  		<div ng-repeat="sail in sailings">
